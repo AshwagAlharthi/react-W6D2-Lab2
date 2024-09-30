@@ -38,16 +38,16 @@ function App() {
     if (Number(result) < 18.5) {
       setResultType("underWeight");
       setImage(underWeight);
-    } else if (18.5 <= Number(result) <= 24.9) {
+    } else if (18.5 <= Number(result) && Number(result) <= 24.9) {
       setResultType("Normal Weight");
       setImage(normalWeight);
-    } else if (24.9 <= Number(result) <= 29.9) {
+    } else if (24.9 <= Number(result) && Number(result) <= 29.9) {
       setResultType("OverWeight");
       setImage(overWeight);
-    } else if (29.9 <= Number(result) <= 34.9) {
+    } else if (29.9 <= Number(result) && Number(result) <= 34.9) {
       setResultType("Obesity");
       setImage(obesity);
-    } else if (34.9 <= Number(result) <= 39.9) {
+    } else if (34.9 <= Number(result)) {
       setResultType("Extreme Obesity");
       setImage(extremeObesity);
     }
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div className='bg-white w-full h-screen text-black flex flex-col justify-evenly items-center'>
-      <div className='flex flex-col justify-evenly items-center  w-[45vw] h-[50vh] bg-gray-400 rounded-2xl'>
+      <div className='flex flex-col justify-evenly items-center  w-[45vw] h-[50vh] bg-gray-400 rounded-2xl max-sm:w-[90vw]'>
         <h1 className='text-5xl text-black font-bold'>IBM Calculation</h1>
         <input type="text"
           placeholder="Enter Your weight"
@@ -69,12 +69,12 @@ function App() {
           className="text-white input input-bordered w-full max-w-xs"
           value={height}
           onChange={handleHeight} />
-        <button className='btn' onClick={claculateResult}>Add</button>
+        <button className='btn' onClick={claculateResult}>Calculate</button>
         {/* <p>{result}</p> */}
 
       </div>
       {result &&
-        <div className=' bg-slate-500 w-[45vw] h-[45vh] bg-gray-400 rounded-2xl'>
+        <div className='w-[45vw] h-[45vh] bg-gray-400 rounded-2xl max-sm:w-[90vw]'>
           <div className='flex justify-evenly items-center w-[100%] h-[100%]'>
             <div className='flex flex-col justify-center items-center gap-5'>
               <div className='bg-green-900 text-white p-2 rounded-xl'>The Ideal body weight is: {nWeight}</div>
